@@ -25,7 +25,6 @@ class ShowDetailsFragment @Inject constructor(
 
     private lateinit var binding: FragmentShowDetailsBinding
     lateinit var viewModel: ShowDetailsViewModel
-
     private var show: ShowDetails? = null
 
     override fun onCreateView(
@@ -41,17 +40,32 @@ class ShowDetailsFragment @Inject constructor(
 
         viewModel = ViewModelProvider(requireActivity())[ShowDetailsViewModel::class.java]
 
-
         val args: ShowDetailsFragmentArgs by navArgs()
         val id = args.showId
 
-        viewModel.getShowDetails(id)
-
+        loadScreen(id)
         setupObservers()
         setupSaveButton()
         setupOnBackPressed()
         setupNavigation()
+        setupToolbarSearchButton()
+        setupToolbarFavoriteButton()
+    }
 
+    private fun loadScreen(id: Int) {
+        viewModel.getShowDetails(id)
+    }
+
+    private fun setupToolbarSearchButton() {
+        binding.toolbarSearch.setOnClickListener {
+            findNavController().navigate(ShowDetailsFragmentDirections.actionShowDetailsFragmentToSearchShowFragment())
+        }
+    }
+
+    private fun setupToolbarFavoriteButton() {
+        binding.toolbarFavorite.setOnClickListener {
+            findNavController().navigate(ShowDetailsFragmentDirections.actionShowDetailsFragmentToFavoritesShowsFragment())
+        }
     }
 
     private fun setupObservers() {
@@ -103,10 +117,11 @@ class ShowDetailsFragment @Inject constructor(
         requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
-
     private fun setupNavigation() {
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigate(ShowDetailsFragmentDirections.actionShowDetailsFragmentToShowListFragment())
+            //findNavController().navigate(ShowDetailsFragmentDirections.actionShowDetailsFragmentToShowListFragment())
+            findNavController().popBackStack()
         }
     }
+
 }

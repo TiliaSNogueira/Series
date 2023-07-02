@@ -6,6 +6,8 @@ import com.example.filmsandseries.data.remote.FilmsAndSeriesAPI
 import com.example.filmsandseries.model.ShowDetails
 import com.example.filmsandseries.model.ShowItem
 import com.example.filmsandseries.util.ResultWrapper
+import com.example.filmsandseries.util.clearList
+import com.example.filmsandseries.util.clearText
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -32,7 +34,7 @@ class RepositoryImpl @Inject constructor(
                 ResultWrapper.error("Error", null)
             }
         } catch (e: Exception) {
-            ResultWrapper.error("Error", null)
+            ResultWrapper.error("${e.message}", null)
         }
     }
 
@@ -42,26 +44,28 @@ class RepositoryImpl @Inject constructor(
 
             if (response.isSuccessful) {
                 response.body()?.let { it ->
-                    val details = ShowDetails(
-                        id = it.id,
-                        image = it.image.medium,
-                        title = it.name,
-                        summary = it.summary,
-                        genres = it.genres,
-                        rating = it.rating?.average
-                    )
+                    val details = it.genres?.let { it1 ->
+                        ShowDetails(
+                            id = it.id,
+                            image = it.image.medium,
+                            title = it.name,
+                            summary = it.summary.clearText(),
+                            genres = it1.clearList(),
+                            rating = it.rating?.average
+                        )
+                    }
                     return@let ResultWrapper.succcess(details)
                 } ?: ResultWrapper.error("Error", null)
             } else {
                 ResultWrapper.error("Error", null)
             }
         } catch (e: Exception) {
-            ResultWrapper.error("Error", null)
+            ResultWrapper.error("${e.message}", null)
         }
     }
 
     override fun getFavoritesShow(): LiveData<List<ShowDetails>> {
-       return dao.getFavoritesShowList()
+        return dao.getFavoritesShowList()
     }
 
     override suspend fun saveFavoriteShow(show: ShowDetails) {
@@ -70,6 +74,29 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun deleteFavoriteShow(show: ShowDetails) {
         dao.deleteFavoriteShow(show)
+    }
+
+    override suspend fun searchShow(name: String): ResultWrapper<List<ShowItem>> {
+        return try {
+            val response = api.searchShowFromAPI(name)
+
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    val serachShowList = it.map { search ->
+                        ShowItem(
+                            idItem = search.show?.id,
+                            imageItem = search.show?.image?.medium,
+                            titleItem = search.show?.name
+                        )
+                    }
+                    return@let ResultWrapper.succcess(serachShowList)
+                } ?: ResultWrapper.error("Error", null)
+            } else {
+                ResultWrapper.error("Error", null)
+            }
+        } catch (e: Exception) {
+            ResultWrapper.error("${e.message}", null)
+        }
     }
 
 }

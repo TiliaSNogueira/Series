@@ -3,15 +3,18 @@
 
     <string name="item_show_image_description">Imagem da série</string>
 
-
-    <string name="show_list_button_go_to_favorites">VER FAVORITOS</string>
-
+    <string name="show_list_button_search">Pesquisar</string>
 
     <string name="show_details_button_save">SALVAR</string>
     <string name="show_details_summary">Summary</string>
     <string name="show_details_rating">Rating</string>
     <string name="show_details_genres">Genres</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="search">Pesquisar</string>
+
+
+    <string name="toolbar_favorite_image">Imagem favoritos da toolbar</string>
+    <string name="toolbar_home_image">Imagem tela inicial da toolbar</string>
+    <string name="toolbar_search_image">Imagem pesquisar da toolbar</string>
 
 </resources>

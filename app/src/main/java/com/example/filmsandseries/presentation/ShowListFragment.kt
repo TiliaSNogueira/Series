@@ -37,12 +37,29 @@ class ShowListFragment @Inject constructor(
 
         viewModel = ViewModelProvider(requireActivity())[ShowListViewModel::class.java]
 
-        viewModel.getShowList()
+        loadScreen()
         setupRecyclerView()
         setupObservers()
         selectShow()
-        setupButton()
         observeScroll()
+        setupToolbarSearchButton()
+        setupToolbarFavoriteButton()
+    }
+
+    private fun loadScreen() {
+        viewModel.getShowList()
+    }
+
+    private fun setupToolbarSearchButton() {
+        binding.toolbarSearch.setOnClickListener {
+            findNavController().navigate(ShowListFragmentDirections.actionShowListFragmentToSearchShowFragment())
+        }
+    }
+
+    private fun setupToolbarFavoriteButton() {
+        binding.toolbarFavorite.setOnClickListener {
+            findNavController().navigate(ShowListFragmentDirections.actionShowListFragmentToFavoritesShowsFragment())
+        }
     }
 
     private fun selectShow() {
@@ -57,7 +74,6 @@ class ShowListFragment @Inject constructor(
         binding.imageRecyclerView.adapter = showListAdapter
         binding.imageRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
     }
-
 
     private fun setupObservers() {
         viewModel.showList.observe(viewLifecycleOwner, Observer {
@@ -78,12 +94,6 @@ class ShowListFragment @Inject constructor(
                 }
             }
         })
-    }
-
-    private fun setupButton() {
-        binding.btnFavorites.setOnClickListener {
-            findNavController().navigate(ShowListFragmentDirections.actionShowListFragmentToFavoritesShowsFragment())
-        }
     }
 
     private fun observeScroll() {

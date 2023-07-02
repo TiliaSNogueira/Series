@@ -1,5 +1,6 @@
 package com.example.filmsandseries.data.remote
 
+import com.example.filmsandseries.data.remote.response.SearchShowResponse
 import com.example.filmsandseries.data.remote.response.ShowDetailsResponse
 import com.example.filmsandseries.data.remote.response.ShowResponse
 import retrofit2.Response
@@ -14,4 +15,8 @@ interface FilmsAndSeriesAPI {
 
     @GET("shows/{id}")
     suspend fun getShowDetailsFromAPI(@Path("id") showId: Int): Response<ShowDetailsResponse>
+
+    @GET("search/shows")
+    suspend fun searchShowFromAPI(@Query("q") name: String): Response<List<SearchShowResponse>>
+
 }

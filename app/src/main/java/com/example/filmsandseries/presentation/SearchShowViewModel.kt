@@ -12,24 +12,20 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ShowListViewModel @Inject constructor(
+class SearchShowViewModel @Inject constructor(
     private val repository: RepositoryInterface
 ) : ViewModel() {
 
-    var page = 1
-    private val shows = MutableLiveData<ResultWrapper<List<ShowItem>>>()
-    val showList: LiveData<ResultWrapper<List<ShowItem>>>
-        get() = shows
+    private val search = MutableLiveData<ResultWrapper<List<ShowItem>>>()
+    val searchShows: LiveData<ResultWrapper<List<ShowItem>>>
+        get() = search
 
-    fun updatePage() {
-        page += 1
-    }
 
-    fun getShowList() {
-        shows.value = ResultWrapper.loading(null)
+    fun searchShow(name: String) {
+        search.value = ResultWrapper.loading(null)
         viewModelScope.launch {
-            val response = repository.getShowList(page)
-            shows.value = response
+            val response = repository.searchShow(name)
+            search.value = response
         }
     }
 

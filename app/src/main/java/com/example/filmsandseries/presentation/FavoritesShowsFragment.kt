@@ -40,7 +40,6 @@ class FavoritesShowsFragment @Inject constructor(
             }
         }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,6 +57,20 @@ class FavoritesShowsFragment @Inject constructor(
         setupObservers()
         setupNavigation()
         setupOnBackPressed()
+        setupToolbarSearchButton()
+        setupToolbarHomeButton()
+    }
+
+    private fun setupToolbarSearchButton() {
+        binding.toolbarSearch.setOnClickListener {
+            findNavController().navigate(FavoritesShowsFragmentDirections.actionFavoritesShowsFragmentToSearchShowFragment())
+        }
+    }
+
+    private fun setupToolbarHomeButton() {
+        binding.toolbarHome.setOnClickListener {
+           findNavController().navigate(FavoritesShowsFragmentDirections.actionFavoritesShowsFragmentToShowListFragment())
+        }
     }
 
     private fun setupRecyclerView() {
@@ -82,10 +95,9 @@ class FavoritesShowsFragment @Inject constructor(
         requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
-
     private fun setupNavigation() {
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigate(ShowDetailsFragmentDirections.actionShowDetailsFragmentToShowListFragment())
+            findNavController().popBackStack()
         }
     }
 

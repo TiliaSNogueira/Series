@@ -1,12 +1,10 @@
 package com.example.filmsandseries.presentation
 
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.filmsandseries.data.RepositoryInterface
-import com.example.filmsandseries.data.local.ShowDao
 import com.example.filmsandseries.model.ShowDetails
 import com.example.filmsandseries.util.ResultWrapper
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +33,5 @@ class ShowDetailsViewModel @Inject constructor(
             repository.saveFavoriteShow(show)
         }
     }
-
-
 
 }

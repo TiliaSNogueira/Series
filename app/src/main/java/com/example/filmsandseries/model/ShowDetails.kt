@@ -10,6 +10,6 @@ data class ShowDetails(
     var image: String? = null,
     var title: String? = null,
     var summary: String? = null,
-    var genres: List<String?>? = null,
+    var genres: String? = null,
     var rating: Double? = null
 ) : java.io.Serializable

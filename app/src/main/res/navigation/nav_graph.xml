@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_showListFragment_to_favoritesShowsFragment"
             app:destination="@id/favoritesShowsFragment" />
+        <action
+            android:id="@+id/action_showListFragment_to_searchShowFragment"
+            app:destination="@id/searchShowFragment" />
     </fragment>
     <fragment
         android:id="@+id/showDetailsFragment"
@@ -31,6 +34,12 @@
         <action
             android:id="@+id/action_showDetailsFragment_to_showListFragment"
             app:destination="@id/showListFragment" />
+        <action
+            android:id="@+id/action_showDetailsFragment_to_favoritesShowsFragment2"
+            app:destination="@id/favoritesShowsFragment" />
+        <action
+            android:id="@+id/action_showDetailsFragment_to_searchShowFragment"
+            app:destination="@id/searchShowFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesShowsFragment"
@@ -40,5 +49,29 @@
         <action
             android:id="@+id/action_favoritesShowsFragment_to_showDetailsFragment"
             app:destination="@id/showDetailsFragment" />
+        <action
+            android:id="@+id/action_favoritesShowsFragment_to_searchShowFragment"
+            app:destination="@id/searchShowFragment" />
+        <action
+            android:id="@+id/action_favoritesShowsFragment_to_showListFragment"
+            app:destination="@id/showListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchShowFragment"
+        android:name="com.example.filmsandseries.presentation.SearchShowFragment"
+        android:label="fragment_search_show"
+        tools:layout="@layout/fragment_search_show" >
+        <action
+            android:id="@+id/action_searchShowFragment_to_showDetailsFragment"
+            app:destination="@id/showDetailsFragment" />
+        <action
+            android:id="@+id/action_searchShowFragment_to_favoritesShowsFragment"
+            app:destination="@id/favoritesShowsFragment" />
+        <action
+            android:id="@+id/action_searchShowFragment_to_showListFragment"
+            app:destination="@id/showListFragment" />
+        <action
+            android:id="@+id/action_searchShowFragment_to_showListFragment2"
+            app:destination="@id/showListFragment" />
     </fragment>
 </navigation>

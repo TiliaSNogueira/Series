@@ -8,6 +8,7 @@ import javax.inject.Inject
 class FilmesAndSeriesFragmentFactory @Inject constructor(
     private val showListAdapter: ShowListAdapter,
     private val favoritesShowsAdapter: FavoritesShowsAdapter,
+    private val searchShowsAdapter: SearchShowAdapter,
     private val glide: RequestManager
 ) : FragmentFactory() {
 
@@ -16,6 +17,7 @@ class FilmesAndSeriesFragmentFactory @Inject constructor(
             ShowListFragment::class.java.name -> ShowListFragment(showListAdapter)
             ShowDetailsFragment::class.java.name -> ShowDetailsFragment(glide)
             FavoritesShowsFragment::class.java.name -> FavoritesShowsFragment(favoritesShowsAdapter)
+            SearchShowFragment::class.java.name -> SearchShowFragment(searchShowsAdapter)
             else -> super.instantiate(classLoader, className)
         }
     }

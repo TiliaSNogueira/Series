@@ -16,4 +16,6 @@ interface RepositoryInterface {
     suspend fun saveFavoriteShow(show: ShowDetails)
 
     suspend fun deleteFavoriteShow(show: ShowDetails)
+
+    suspend fun searchShow(name: String): ResultWrapper<List<ShowItem>>
 }
