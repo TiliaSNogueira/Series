@@ -5,6 +5,7 @@ import com.example.filmsandseries.data.local.ShowDao
 import com.example.filmsandseries.data.remote.FilmsAndSeriesAPI
 import com.example.filmsandseries.model.ShowDetails
 import com.example.filmsandseries.model.ShowItem
+import com.example.filmsandseries.util.Constants.ERROR
 import com.example.filmsandseries.util.ResultWrapper
 import com.example.filmsandseries.util.clearList
 import com.example.filmsandseries.util.clearText
@@ -29,9 +30,9 @@ class RepositoryImpl @Inject constructor(
                         )
                     }
                     return@let ResultWrapper.succcess(showList)
-                } ?: ResultWrapper.error("Error", null)
+                } ?: ResultWrapper.error(ERROR, null)
             } else {
-                ResultWrapper.error("Error", null)
+                ResultWrapper.error(ERROR, null)
             }
         } catch (e: Exception) {
             ResultWrapper.error("${e.message}", null)
@@ -55,9 +56,9 @@ class RepositoryImpl @Inject constructor(
                         )
                     }
                     return@let ResultWrapper.succcess(details)
-                } ?: ResultWrapper.error("Error", null)
+                } ?: ResultWrapper.error(ERROR, null)
             } else {
-                ResultWrapper.error("Error", null)
+                ResultWrapper.error(ERROR, null)
             }
         } catch (e: Exception) {
             ResultWrapper.error("${e.message}", null)
@@ -90,9 +91,9 @@ class RepositoryImpl @Inject constructor(
                         )
                     }
                     return@let ResultWrapper.succcess(serachShowList)
-                } ?: ResultWrapper.error("Error", null)
+                } ?: ResultWrapper.error(ERROR, null)
             } else {
-                ResultWrapper.error("Error", null)
+                ResultWrapper.error(ERROR, null)
             }
         } catch (e: Exception) {
             ResultWrapper.error("${e.message}", null)

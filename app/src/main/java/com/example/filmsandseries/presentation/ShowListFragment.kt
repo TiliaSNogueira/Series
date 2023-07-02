@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +22,7 @@ class ShowListFragment @Inject constructor(
 
     private lateinit var binding: FragmentShowListBinding
     lateinit var viewModel: ShowListViewModel
+    private val errorDialog: ErrorDialog by lazy { ErrorDialog(this.requireActivity()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,8 +89,7 @@ class ShowListFragment @Inject constructor(
 
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
-                    //todo dialog de erro
-                    Toast.makeText(context, it.message ?: "Error", Toast.LENGTH_LONG).show()
+                    errorDialog.show(it.message.toString())
                 }
             }
         })

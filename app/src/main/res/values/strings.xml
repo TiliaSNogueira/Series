@@ -12,6 +12,10 @@
 
     <string name="search">Pesquisar</string>
 
+    <string name="dialog_error_something_went_wrong">Ops! Algo deu errado...</string>
+    <string name="dialog_error_ok">OK</string>
+
+    <string name="dialog_error_image">Imagem emoji triste\n</string>
 
     <string name="toolbar_favorite_image">Imagem favoritos da toolbar</string>
     <string name="toolbar_home_image">Imagem tela inicial da toolbar</string>

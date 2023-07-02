@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,6 +23,7 @@ class SearchShowFragment @Inject constructor(
 
     private lateinit var binding: FragmentSearchShowBinding
     lateinit var viewModel: SearchShowViewModel
+    private val errorDialog: ErrorDialog by lazy { ErrorDialog(this.requireActivity()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,8 +82,7 @@ class SearchShowFragment @Inject constructor(
 
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
-                    //todo dialog de erro
-                    Toast.makeText(context, it.message ?: "Error", Toast.LENGTH_LONG).show()
+                    errorDialog.show(it.message.toString())
                 }
             }
         })
@@ -96,7 +94,8 @@ class SearchShowFragment @Inject constructor(
     }
 
     private fun setupSearchView() {
-        binding.search.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+        binding.search.setOnQueryTextListener(object :
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 if (query.isNotEmpty()) {
                     viewModel.searchShow(query)

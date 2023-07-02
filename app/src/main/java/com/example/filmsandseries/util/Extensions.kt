@@ -5,6 +5,8 @@ fun String.clearText(): String {
         .replace("</p>", "")
         .replace("<b>", "")
         .replace("</b>", "")
+        .replace("<i>", "")
+        .replace("</i>", "")
 }
 
 fun List<String>.clearList(): String {
