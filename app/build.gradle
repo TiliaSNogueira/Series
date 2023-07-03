@@ -17,7 +17,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.filmsandseries.HiltTestRunner"
     }
 
     buildTypes {
@@ -116,6 +117,9 @@ dependencies {
     debugImplementation 'com.google.dagger:hilt-android-testing:2.43.2'
 
     androidTestImplementation "org.hamcrest:hamcrest:2.2"
+
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
 }
 

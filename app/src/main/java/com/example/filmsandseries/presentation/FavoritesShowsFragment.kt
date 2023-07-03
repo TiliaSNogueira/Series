@@ -57,14 +57,7 @@ class FavoritesShowsFragment @Inject constructor(
         setupObservers()
         setupNavigation()
         setupOnBackPressed()
-        setupToolbarSearchButton()
         setupToolbarHomeButton()
-    }
-
-    private fun setupToolbarSearchButton() {
-        binding.toolbarSearch.setOnClickListener {
-            findNavController().navigate(FavoritesShowsFragmentDirections.actionFavoritesShowsFragmentToSearchShowFragment())
-        }
     }
 
     private fun setupToolbarHomeButton() {

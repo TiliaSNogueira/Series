@@ -20,13 +20,15 @@ class SearchShowViewModel @Inject constructor(
     val searchShows: LiveData<ResultWrapper<List<ShowItem>>>
         get() = search
 
-
     fun searchShow(name: String) {
         search.value = ResultWrapper.loading(null)
-        viewModelScope.launch {
-            val response = repository.searchShow(name)
-            search.value = response
+        if (name.isNotBlank()) {
+            viewModelScope.launch {
+                val response = repository.searchShow(name)
+                search.value = response
+            }
+        } else {
+            search.value = ResultWrapper.loading(null)
         }
     }
-
 }

@@ -101,7 +101,6 @@ class ShowListFragment @Inject constructor(
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
                     viewModel.updatePage()
-                    viewModel.getShowList()
                 }
             }
         })

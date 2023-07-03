@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Films And Series</string>
+    <string name="app_name">Series App</string>
 
     <string name="item_show_image_description">Imagem da série</string>
 
@@ -20,5 +20,6 @@
     <string name="toolbar_favorite_image">Imagem favoritos da toolbar</string>
     <string name="toolbar_home_image">Imagem tela inicial da toolbar</string>
     <string name="toolbar_search_image">Imagem pesquisar da toolbar</string>
+    <string name="splash_screen_image">Splash screen image</string>
 
 </resources>

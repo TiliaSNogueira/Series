@@ -63,7 +63,7 @@ class SearchShowFragment @Inject constructor(
     private fun selectShow() {
         adapter.setOnShowClickListener { showId ->
             val action =
-                ShowListFragmentDirections.actionShowListFragmentToShowDetailsFragment(showId)
+                SearchShowFragmentDirections.actionSearchShowFragmentToShowDetailsFragment( showId)
             findNavController().navigate(action)
         }
     }

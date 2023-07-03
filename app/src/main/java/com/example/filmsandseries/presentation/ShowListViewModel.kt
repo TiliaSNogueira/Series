@@ -23,6 +23,7 @@ class ShowListViewModel @Inject constructor(
 
     fun updatePage() {
         page += 1
+        getShowList()
     }
 
     fun getShowList() {

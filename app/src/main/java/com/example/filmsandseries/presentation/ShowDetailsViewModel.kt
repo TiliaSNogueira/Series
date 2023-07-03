@@ -20,6 +20,8 @@ class ShowDetailsViewModel @Inject constructor(
     val showDetails: LiveData<ResultWrapper<ShowDetails>>
         get() = details
 
+    val favorites = repository.getFavoritesShow()
+
     fun getShowDetails(id: Int) {
         details.value = ResultWrapper.loading(null)
         viewModelScope.launch {

@@ -25,7 +25,6 @@ class ShowListAdapter @Inject constructor(
             LayoutInflater.from(parent.context).inflate(R.layout.item_show, parent, false)
         )
     }
-
     override fun getItemCount() = showList.size
 
     override fun onBindViewHolder(holder: ShowViewHolder, position: Int) {

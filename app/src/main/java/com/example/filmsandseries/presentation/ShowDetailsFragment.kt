@@ -25,7 +25,8 @@ class ShowDetailsFragment @Inject constructor(
 
     private lateinit var binding: FragmentShowDetailsBinding
     lateinit var viewModel: ShowDetailsViewModel
-    private var show: ShowDetails? = null
+    var show: ShowDetails? = null
+    private val errorDialog: ErrorDialog by lazy { ErrorDialog(this.requireActivity()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,8 +84,7 @@ class ShowDetailsFragment @Inject constructor(
 
                 Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
-                    //todo dialog de erro
-                    Toast.makeText(context, it.message ?: "Error", Toast.LENGTH_LONG).show()
+                    errorDialog.show(it.message.toString())
                 }
             }
         })
