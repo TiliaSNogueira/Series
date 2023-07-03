@@ -7,7 +7,7 @@ Para mais detalhes sobre TvMaze acesse o link [https://www.tvmaze.com/api](https
 ## Features
 
 O aplicativo exibe em sua tela inicial uma lista das séries, contendo o poster e o título das mesmas.
-Ao selecionar uma das séries, o usuário é direcionado à tela de detalhes, onde são exibidos o poster, título, pontuação, gêneros e sumário da série selecionada.
+Ao selecionar uma das séries, o usuário é direcionado à tela de detalhes, onde são exibidos o poster, título, pontuação, gêneros e sinopse da série selecionada.
 Nesta mesma tela de detalhes é possível salvar a série na lista de favoritos.
 O aplicativo conta também com a funcionalidade de pesquisar séries pelo nome.
 
