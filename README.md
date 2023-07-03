@@ -26,6 +26,20 @@ O aplicativo conta também com a funcionalidade de pesquisar séries pelo nome.
 * Mockito para testes 
 * Espresso para testes de interface do usuário
 
+## Telas do aplicativo
+
+#### Splash screen e lista inicial de séries:
+![Gifs](https://github.com/TiliaSNogueira/Series/blob/master/splash%20and%20list.gif?raw=true)
+
+#### Pesquisa de séries:
+![Gifs](https://github.com/TiliaSNogueira/Series/blob/master/search.gif?raw=true)
+
+#### Detalhes da série:
+![Gifs](https://github.com/TiliaSNogueira/Series/blob/master/details.gif?raw=true)
+
+#### Lista de favoritos com ação de swipe para remover favorito:
+![Gifs](https://github.com/TiliaSNogueira/Series/blob/master/favoritos.gif?raw=true)
+
           
 
 
