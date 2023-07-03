@@ -118,9 +118,6 @@ dependencies {
 
     androidTestImplementation "org.hamcrest:hamcrest:2.2"
 
-    //Lottie
-    implementation 'com.airbnb.android:lottie:3.4.1'
-
 }
 
 kapt {

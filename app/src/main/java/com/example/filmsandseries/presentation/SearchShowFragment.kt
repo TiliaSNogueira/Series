@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 
 class SearchShowFragment @Inject constructor(
-    private val adapter: SearchShowAdapter
+    val adapter: SearchShowAdapter
 ) : Fragment(R.layout.fragment_search_show) {
 
     private lateinit var binding: FragmentSearchShowBinding
@@ -63,7 +63,7 @@ class SearchShowFragment @Inject constructor(
     private fun selectShow() {
         adapter.setOnShowClickListener { showId ->
             val action =
-                SearchShowFragmentDirections.actionSearchShowFragmentToShowDetailsFragment( showId)
+                SearchShowFragmentDirections.actionSearchShowFragmentToShowDetailsFragment(showId)
             findNavController().navigate(action)
         }
     }

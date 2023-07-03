@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 
 class ShowListFragment @Inject constructor(
-    private val showListAdapter: ShowListAdapter
+    val showListAdapter: ShowListAdapter
 ) : Fragment(R.layout.fragment_show_list) {
 
     private lateinit var binding: FragmentShowListBinding
